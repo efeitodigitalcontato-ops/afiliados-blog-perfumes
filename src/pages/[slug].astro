@@ -16,37 +16,37 @@ const { Content } = await post.render();
 
 const hasProducts = post.data.reviewedProducts && post.data.reviewedProducts.length > 0;
 
-const mlAffiliateLink = 'https://www.mercadolivre.com.br/social/ninjafreire?matt_word=colchoes&matt_tool=13927859&forceInApp=true';
+const mlAffiliateLink = 'https://www.mercadolivre.com.br/social/ninjafreire';
 
 const recommendedProducts = [
   {
-    title: 'Colchão Emma Original Casal',
-    image: '/recommended-emma.jpg',
+    title: 'Dior Sauvage Eau de Toilette',
+    image: '/recommended-sauvage.jpg',
     rating: 4.8,
-    reviews: '3.420',
+    reviews: '4.850',
     link: mlAffiliateLink,
-    priceRange: 'R$ 2.500 - R$ 3.000'
+    priceRange: 'R$ 600 - R$ 850'
   },
   {
-    title: 'Colchão Luiza Molas Ensacadas',
-    image: '/recommended-luiza.jpg',
-    rating: 4.6,
-    reviews: '1.850',
+    title: 'Carolina Herrera Good Girl Eau de Parfum',
+    image: '/recommended-goodgirl.jpg',
+    rating: 4.9,
+    reviews: '3.120',
     link: mlAffiliateLink,
-    priceRange: 'R$ 1.200 - R$ 1.500'
+    priceRange: 'R$ 550 - R$ 750'
   },
   {
-    title: 'Colchão Ortopédico Castor D45',
-    image: '/recommended-castor.jpg',
-    rating: 4.7,
-    reviews: '2.100',
+    title: 'Bleu de Chanel Eau de Parfum',
+    image: '/recommended-bleuchanel.jpg',
+    rating: 4.8,
+    reviews: '2.450',
     link: mlAffiliateLink,
-    priceRange: 'R$ 1.400 - R$ 1.800'
+    priceRange: 'R$ 800 - R$ 1.100'
   }
 ];
 ---
 
-<Layout title={`${post.data.title} | Melhores Colchões`} description={post.data.description}>
+<Layout title={`${post.data.title} | Bibliolab`} description={post.data.description}>
   <article class="blog-post">
     <!-- Categoria -->
     {post.data.category && (
@@ -58,7 +58,7 @@ const recommendedProducts = [
     
     <!-- Meta Dados -->
     <div class="post-meta-row">
-      <span class="meta-item author-name">Por {post.data.author || 'Equipe Melhores Colchões'}</span>
+      <span class="meta-item author-name">Por {post.data.author || 'Equipe Bibliolab'}</span>
       <span class="meta-divider">&bull;</span>
       <span class="meta-item publish-date">
         Publicado em {new Date(post.data.pubDate).toLocaleDateString('pt-BR', {
@@ -197,14 +197,14 @@ const recommendedProducts = [
     <!-- Rodapé do Artigo se tiver produtos -->
     {hasProducts && (
       <div class="post-conclusion-section" id="conclusao">
-        <h2 class="section-title">Nossa Conclusão: Qual Colchão Comprar?</h2>
-        <p>A melhor escolha de colchão depende muito da sua necessidade e do seu orçamento:</p>
+        <h2 class="section-title">Nossa Conclusão: Como Escolher o Perfume Ideal?</h2>
+        <p>A melhor escolha de perfume depende muito da ocasião e da sua preferência pessoal:</p>
         <ul>
-          <li>Para <strong>conforto individual sem interferência</strong>, os colchões de molas ensacadas individualmente (pocket) são a escolha perfeita.</li>
-          <li>Para <strong>suporte ortopédico e firmeza</strong>, os modelos de espuma de alta densidade (D33 ou D45) ajudam no alinhamento correto da coluna.</li>
-          <li>Se você busca <strong>tecnologia e maciez premium</strong>, os colchões de molas ensacadas combinados com Pillow Top de látex ou espuma viscoelástica são o investimento mais recomendado.</li>
+          <li>Para <strong>uso diário e climas quentes</strong>, fragrâncias cítricas, florais frescas ou aquáticas são perfeitas pela leveza.</li>
+          <li>Para <strong>noite e ocasiões especiais</strong>, os perfumes orientais, amadeirados ou gourmands garantem maior projeção e marcância.</li>
+          <li>Para <strong>maior durabilidade na pele</strong>, dê preferência para as concentrações Eau de Parfum (EDP) ou Parfum.</li>
         </ul>
-        <p>Esperamos que este guia tenha facilitado sua escolha! Lembre-se de clicar em nossos links afiliados para conferir o melhor preço atual e as avaliações de outros usuários.</p>
+        <p>Esperamos que esta resenha tenha facilitado sua escolha! Lembre-se de clicar em nossos links afiliados para conferir o melhor preço atual e as avaliações de outros compradores.</p>
         <div class="conclusion-cta">
           <a href={mlAffiliateLink} target="_blank" rel="noopener noreferrer nofollow" class="conclusion-btn">
             Ver Preço Aqui

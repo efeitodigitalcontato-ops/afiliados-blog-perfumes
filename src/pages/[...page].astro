@@ -20,12 +20,12 @@ const heroPost = isFirstPage ? page.data[0] : null;
 const gridPosts = isFirstPage ? page.data.slice(1) : page.data;
 ---
 
-<Layout title={`Melhores Colchões - Página ${page.currentPage}`} description="Bem-vindo ao Melhores Colchões. Trazemos guias de compras, comparativos e análises completas para você escolher os melhores colchões e acessórios de sono.">
+<Layout title={`Bibliolab - Página ${page.currentPage}`} description="Bem-vindo ao Bibliolab. Trazemos guias de compras, comparativos e análises completas para você escolher os melhores perfumes nacionais e importados.">
   <div class="home-container">
     {isFirstPage && (
       <div class="intro-card">
-        <h2>Encontre os Melhores Colchões e Acessórios</h2>
-        <p>Bem-vindo ao <strong>Melhores Colchões</strong>! Nossa missão é pesquisar, analisar e comparar os melhores modelos de colchões de espuma, molas ensacadas, ortopédicos e travesseiros do mercado. Trazemos guias de compras atualizados e avaliações completas para ajudar você a escolher o colchão perfeito com total segurança e o melhor custo-benefício.</p>
+        <h2>Encontre os Melhores Perfumes e Fragrâncias</h2>
+        <p>Bem-vindo ao <strong>Bibliolab</strong>! Nossa missão é pesquisar, analisar e comparar os melhores perfumes importados e nacionais do mercado. Trazemos guias de compras atualizados, pirâmides olfativas detalhadas e resenhas completas para ajudar você a encontrar sua assinatura olfativa com total segurança e custo-benefício.</p>
       </div>
     )}
 
@@ -46,7 +46,7 @@ const gridPosts = isFirstPage ? page.data.slice(1) : page.data;
               </h2>
               <p class="hero-desc">{heroPost.data.description}</p>
               <div class="hero-meta">
-                <span class="meta-author">Por {heroPost.data.author || 'Equipe Melhores Colchões'}</span>
+                <span class="meta-author">Por {heroPost.data.author || 'Equipe Bibliolab'}</span>
                 <span class="meta-separator">&bull;</span>
                 <span class="meta-date">
                   {new Date(heroPost.data.pubDate).toLocaleDateString('pt-BR', {
