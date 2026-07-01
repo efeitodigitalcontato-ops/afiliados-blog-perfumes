@@ -1,0 +1,2 @@
+# Prevent folder listing
+Options -Indexes
