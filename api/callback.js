@@ -114,7 +114,7 @@ function renderSuccessPage(res, token, provider) {
     <!DOCTYPE html>
     <html>
     <head>
-      <title>Autenticando - Inteligência Jovem</title>
+      <title>Autenticando - Bibliolab</title>
       <!-- Google Fonts: Outfit -->
       <link rel="preconnect" href="https://fonts.googleapis.com">
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
