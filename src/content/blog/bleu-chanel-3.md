@@ -11,7 +11,7 @@ reviewedProducts:
     image: "/recommended-bleuchanel.jpg"
     rating: 4.8
     reviewsCount: "2.450"
-    amazonLink: "https://www.mercadolivre.com.br/social/ninjafreire"
+    amazonLink: "https://meli.la/1vcuPB5"
     priceEstimate: "R$ 800 - R$ 1.100"
     specs:
       - "Concentração: Eau de Parfum (EDP)"

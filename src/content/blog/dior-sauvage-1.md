@@ -11,7 +11,7 @@ reviewedProducts:
     image: "/recommended-sauvage.jpg"
     rating: 4.8
     reviewsCount: "4.850"
-    amazonLink: "https://www.mercadolivre.com.br/social/ninjafreire"
+    amazonLink: "https://meli.la/1vcuPB5"
     priceEstimate: "R$ 600 - R$ 850"
     specs:
       - "Concentração: Eau de Toilette (EDT)"

@@ -11,7 +11,7 @@ reviewedProducts:
     image: "/recommended-goodgirl.jpg"
     rating: 4.9
     reviewsCount: "3.120"
-    amazonLink: "https://www.mercadolivre.com.br/social/ninjafreire"
+    amazonLink: "https://meli.la/1vcuPB5"
     priceEstimate: "R$ 550 - R$ 750"
     specs:
       - "Concentração: Eau de Parfum (EDP)"
