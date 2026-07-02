@@ -30,4 +30,20 @@ collections:
       - { label: "Imagem de Destaque", name: "heroImage", widget: "image", required: false }
       - { label: "Categoria", name: "category", widget: "select", options: ["perfumes-masculinos", "perfumes-femininos", "dicas", "analises"], default: "perfumes-masculinos", required: false }
       - { label: "Autor", name: "author", widget: "string", default: "Equipe Bibliolab" }
+      - label: "Produtos Analisados"
+        name: "reviewedProducts"
+        widget: "list"
+        required: false
+        fields:
+          - { label: "ID do Produto", name: "id", widget: "string", required: false }
+          - { label: "Título do Produto", name: "title", widget: "string" }
+          - { label: "Imagem do Produto", name: "image", widget: "image" }
+          - { label: "Avaliação (Nota)", name: "rating", widget: "number", value_type: "float" }
+          - { label: "Quantidade de Avaliações", name: "reviewsCount", widget: "string" }
+          - { label: "Link de Afiliado (Mercado Livre/Amazon)", name: "amazonLink", widget: "string" }
+          - { label: "Estimativa de Preço", name: "priceEstimate", widget: "string" }
+          - { label: "Especificações (Uma por linha)", name: "specs", widget: "list", summary: "{{fields.value}}", field: { label: "Item", name: "item", widget: "string" } }
+          - { label: "Prós (Um por linha)", name: "pros", widget: "list", summary: "{{fields.value}}", field: { label: "Item", name: "item", widget: "string" } }
+          - { label: "Contras (Um por linha)", name: "cons", widget: "list", summary: "{{fields.value}}", field: { label: "Item", name: "item", widget: "string" } }
+          - { label: "Descrição/Resumo do Produto", name: "description", widget: "text" }
       - { label: "Corpo do Artigo", name: "body", widget: "markdown" }
