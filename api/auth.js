@@ -1,3 +1,4 @@
+// Forçando o redeploy automático para aplicar as variáveis OAUTH_CLIENT_ID e OAUTH_CLIENT_SECRET corretas
 export default function handler(req, res) {
   const client_id = process.env.OAUTH_CLIENT_ID;
   if (!client_id) {
