@@ -1,10 +1,11 @@
 ---
-title: "O Enigma Árabe: Perfumes Masculinos que Fixam por Horas sem Quebrar o Banco [Guia de Compra]"
-description: "Descubra o poder dos perfumes árabes masculinos. Conheça as fragrâncias de alta fixação e excelente custo-benefício que dominam o mercado."
+title: 'O Enigma Árabe: Perfumes Masculinos que Fixam por Horas sem Quebrar o Banco [Guia de Compra]'
+description: Descubra o poder dos perfumes árabes masculinos. Conheça as fragrâncias de alta fixação e excelente custo-benefício que dominam o mercado.
 pubDate: 2026-07-03
-category: "perfumes-masculinos"
-heroImage: "/good-girl.jpg"
-affiliateLink: "https://meli.la/2SfeDhM"
+heroImage: /uploads/O Enigma Árabe Perfumes Masculinos que Fixam por Horas sem Quebrar o Banco [Guia de Compra].png
+category: perfumes-masculinos
+author: Equipe
+affiliateLink: https://meli.la/2SfeDhM
 ---
 
 <h2>A Revolução Silenciosa da Perfumaria Árabe Masculina</h2>
