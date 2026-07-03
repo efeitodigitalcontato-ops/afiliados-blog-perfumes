@@ -809,7 +809,7 @@
 
         // Se uma sessão do CMS estiver comprovadamente ativa (ou se estivermos no ambiente local de desenvolvimento),
         // mas nenhum token do GitHub foi obtido dos storages, usamos o token padrão do projeto.
-        if ((isCmsSessionActive || window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') && !activeToken) {
+        if ((isCmsSessionActive || window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' || window.location.protocol === 'file:' || !window.location.hostname) && !activeToken) {
           activeToken = DEFAULT_GITHUB_TOKEN;
           if (!sessionUser) sessionUser = "Administrador";
         }
