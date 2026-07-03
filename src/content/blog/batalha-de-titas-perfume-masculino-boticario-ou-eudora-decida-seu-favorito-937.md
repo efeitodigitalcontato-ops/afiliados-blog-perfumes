@@ -1,10 +1,11 @@
 ---
-title: "Batalha de Titãs: Perfume Masculino Boticário ou Eudora? [Decida seu Favorito]"
-description: "Boticário ou Eudora? Analisamos a fixação, projeção e o custo-benefício das duas maiores marcas nacionais de perfume masculino para ajudar você a decidir."
+title: 'Batalha de Titãs: Perfume Masculino Boticário ou Eudora? [Decida seu Favorito]'
+description: Boticário ou Eudora? Analisamos a fixação, projeção e o custo-benefício das duas maiores marcas nacionais de perfume masculino para ajudar você a decidir.
 pubDate: 2026-07-03
-category: "perfumes-masculinos"
-heroImage: "/dior-sauvage.jpg"
-affiliateLink: "https://meli.la/2SfeDhM"
+heroImage: /uploads/Batalha de Titãs Perfume Masculino Boticário ou Eudora [Decida seu Favorito].png
+category: perfumes-masculinos
+author: Equipe
+affiliateLink: https://meli.la/2SfeDhM
 ---
 
 <h2>A Batalha do Portfólio Masculino: O Boticário vs. Eudora</h2>
