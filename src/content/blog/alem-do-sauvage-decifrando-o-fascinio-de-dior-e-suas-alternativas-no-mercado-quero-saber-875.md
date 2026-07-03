@@ -1,10 +1,11 @@
 ---
-title: "Além do Sauvage: Decifrando o Fascínio de Dior e Suas Alternativas no Mercado [Quero Saber]"
-description: "Descubra o segredo por trás do sucesso do Dior Sauvage, sua engenharia olfativa e as melhores alternativas de alta performance no mercado nacional e importado."
+title: 'Além do Sauvage: Decifrando o Fascínio de Dior e Suas Alternativas no Mercado [Quero Saber]'
+description: Descubra o segredo por trás do sucesso do Dior Sauvage, sua engenharia olfativa e as melhores alternativas de alta performance no mercado nacional e importado.
 pubDate: 2026-07-03
-category: "perfumes-masculinos"
-heroImage: "/dior-sauvage.jpg"
-affiliateLink: "https://meli.la/2SfeDhM"
+heroImage: /uploads/Além do Sauvage Decifrando o Fascínio de Dior e Suas Alternativas no Mercado [Quero Saber].png
+category: perfumes-masculinos
+author: Equipe
+affiliateLink: https://meli.la/2SfeDhM
 ---
 
 <h2>O Fenômeno Azul: Por que o Sauvage Redefiniu a Perfumaria Masculina</h2>
