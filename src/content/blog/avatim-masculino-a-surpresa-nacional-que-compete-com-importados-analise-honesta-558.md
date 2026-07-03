@@ -1,10 +1,11 @@
 ---
-title: "Avatim Masculino: A Surpresa Nacional que Compete com Importados [Análise Honesta]"
-description: "Descubra se o perfume Avatim Masculino vale a pena. Analisamos a fixação, projeção e as melhores fragrâncias que competem com importados de luxo."
+title: 'Avatim Masculino: A Surpresa Nacional que Compete com Importados [Análise Honesta]'
+description: Descubra se o perfume Avatim Masculino vale a pena. Analisamos a fixação, projeção e as melhores fragrâncias que competem com importados de luxo.
 pubDate: 2026-07-03
-category: "perfumes-masculinos"
-heroImage: "/frigobar-cosmeticos.jpg"
-affiliateLink: "https://meli.la/2SfeDhM"
+heroImage: /uploads/Avatim Masculino A Surpresa Nacional que Compete com Importados [Análise Honesta].png
+category: perfumes-masculinos
+author: Equipe
+affiliateLink: https://meli.la/2SfeDhM
 ---
 
 <h2>O Fenômeno Silencioso da Perfumaria Nacional</h2>
