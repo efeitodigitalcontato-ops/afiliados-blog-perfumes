@@ -55,19 +55,6 @@
       display: flex;
       flex-direction: column;
     }
-    input[type="file"]::file-selector-button {
-      background: var(--primary);
-      color: white;
-      border: none;
-      padding: 6px 12px;
-      border-radius: 6px;
-      cursor: pointer;
-      font-weight: 500;
-      transition: all 0.2s;
-    }
-    input[type="file"]::file-selector-button:hover {
-      background: var(--primary-hover);
-    }
 
     /* Navbar styling */
     header {
@@ -559,7 +546,7 @@
       <img src="/logo-ninja.jpg" alt="Bibliolab" style="width: 40px; height: 40px; border-radius: 12px; object-fit: cover; border: 1px solid var(--border);">
       <div class="brand-title">
         <h1>Painel Administrativo</h1>
-        <p>Bibliolab</p>
+        <p>Gerador Ninja</p>
       </div>
     </a>
     
@@ -610,23 +597,19 @@
           <div id="single-fields" style="display: flex; flex-direction: column; gap: 20px;">
             <div class="form-group">
               <label for="post-title">Título do Artigo</label>
-              <input type="text" id="post-title" class="form-control" placeholder="Ex: Cama Box King Colchão OrtoFirm + Box: Vale a Pena?" required>
+              <input type="text" id="post-title" class="form-control" placeholder="Ex: Perfume Bleu de Chanel é bom? Resenha Completa" required>
             </div>
 
             <div class="form-group">
               <label for="post-subtitles">Tópicos e Subtítulos sugeridos <span>(Um por linha - Opcional)</span></label>
-              <textarea id="post-subtitles" class="form-control" placeholder="1. O que significa a espuma D45?&#10;2. A tecnologia One Face&#10;3. Conclusão: Vale a Pena comprar?"></textarea>
+              <textarea id="post-subtitles" class="form-control" placeholder="1. Como é a fixação e projeção?&#10;2. Principais notas olfativas&#10;3. Conclusão: Vale a Pena comprar?"></textarea>
             </div>
           </div>
 
           <div id="bulk-fields" style="display: none; flex-direction: column; gap: 20px;">
             <div class="form-group">
               <label for="bulk-titles">Lista de Títulos <span>(Um por linha - Máximo 10)</span></label>
-              <textarea id="bulk-titles" class="form-control" style="height: 180px; line-height: 1.8; white-space: pre; overflow-x: auto;" wrap="off" placeholder="Ex:&#10;Melhor Colchão de Casal em 2026&#10;Colchão Emma Original é bom?&#10;Guia: Como Escolher a Densidade do Colchão"></textarea>
-            </div>
-            <div id="bulk-mapping-container" style="display: none; max-height: 300px; overflow-y: auto; border: 1px solid var(--border); border-radius: 8px; padding: 12px; background: var(--surface);">
-              <h4 style="font-size: 13px; font-weight: 700; margin-bottom: 10px; color: var(--primary);">🖼️ 1 Imagem para cada Título (Selecione imagens locais para cada post)</h4>
-              <div id="bulk-mapping-list"></div>
+              <textarea id="bulk-titles" class="form-control" style="height: 280px; line-height: 1.8; white-space: pre; overflow-x: auto;" wrap="off" placeholder="Ex:&#10;Melhor Perfume Masculino Importado em 2026&#10;Perfume Bleu de Chanel é bom?&#10;Guia: Como Escolher a Fixação do Perfume"></textarea>
             </div>
           </div>
 
@@ -668,10 +651,6 @@
               <option value="custom">-- Link de Imagem Customizada --</option>
             </select>
             <input type="text" id="post-hero-custom" class="form-control hidden" style="margin-top: 8px;" placeholder="Ex: /uploads/sua-imagem.jpg ou URL completa">
-            <div style="margin-top: 10px; padding: 10px; border: 1px dashed var(--border); border-radius: 8px; background: rgba(0,0,0,0.01);">
-              <label for="post-hero-file" style="margin-bottom:4px; display:block; font-size:12px; font-weight:600; color:var(--text-muted);">Ou envie uma imagem do computador:</label>
-              <input type="file" id="post-hero-file" class="form-control" accept="image/*" style="font-size: 12px; padding: 4px;">
-            </div>
           </div>
 
           <button type="submit" id="generate-btn" class="btn-primary">
@@ -748,7 +727,7 @@
             <!-- Content will be injected here -->
           </div>
           <div class="preview-cta-block">
-            <p class="preview-cta-text" id="preview-cta-para">Quer garantir o seu colchão pelo melhor preço? Clique no botão abaixo e confira as melhores ofertas recomendadas:</p>
+            <p class="preview-cta-text" id="preview-cta-para">Quer garantir o seu perfume pelo melhor preço? Clique no botão abaixo e confira as melhores ofertas recomendadas:</p>
             <a href="#" target="_blank" class="preview-cta-button">Ver Preço Aqui</a>
           </div>
         </div>
@@ -769,70 +748,7 @@
     let parsedFrontmatter = {};
     let parsedHTMLContent = "";
 
-    // Helper to read file to base64
-    function fileToBase64(file) {
-      return new Promise((resolve, reject) => {
-        const reader = new FileReader();
-        reader.readAsDataURL(file);
-        reader.onload = () => resolve(reader.result.split(',')[1]);
-        reader.onerror = error => reject(error);
-      });
-    }
-
-    // Helper to upload file to GitHub
-    async function uploadFileToGitHub(githubToken, fileName, base64Content) {
-      const url = `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/${fileName}`;
-      const response = await fetch(url, {
-        method: "PUT",
-        headers: {
-          "Authorization": `token ${githubToken}`,
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-          message: `Upload de imagem de post: ${fileName}`,
-          content: base64Content,
-          branch: "main"
-        })
-      });
-      if (!response.ok) {
-        const errData = await response.json();
-        throw new Error(errData.message || response.statusText);
-      }
-    }
-
-    // Listen to bulk titles change to render single image loaders
-    window.addEventListener("DOMContentLoaded", () => {
-      const bulkTitles = document.getElementById("bulk-titles");
-      const bulkMappingContainer = document.getElementById("bulk-mapping-container");
-      const bulkMappingList = document.getElementById("bulk-mapping-list");
-
-      if (bulkTitles) {
-        bulkTitles.addEventListener("input", () => {
-          const lines = bulkTitles.value.split("\n").map(l => l.trim()).filter(l => l.length > 0);
-          bulkMappingList.innerHTML = "";
-          if (lines.length > 0) {
-            bulkMappingContainer.style.display = "block";
-            lines.forEach((title, idx) => {
-              const div = document.createElement("div");
-              div.style.cssText = "display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 10px; background: rgba(0,0,0,0.02); border: 1px solid var(--border); border-radius: 8px; margin-bottom: 8px;";
-              div.innerHTML = `
-                <div style="flex: 1; min-width: 0;">
-                  <p style="font-weight: 600; font-size: 13px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin: 0; color: var(--text);">${title}</p>
-                  <input type="text" id="bulk-url-${idx}" class="form-control" style="font-size: 11px; margin-top: 6px; height: auto; padding: 4px 8px;" placeholder="Ou cole a URL da imagem aqui...">
-                </div>
-                <div style="flex-shrink: 0;">
-                  <input type="file" id="bulk-file-${idx}" accept="image/*" style="font-size: 11px; max-width: 180px;">
-                </div>
-              `;
-              bulkMappingList.appendChild(div);
-            });
-          } else {
-            bulkMappingContainer.style.display = "none";
-          }
-        });
-      }
-    });
-
+    // Load credentials on startup
     window.addEventListener("DOMContentLoaded", () => {
       // 🔒 SCANNER DE SEGURANÇA DINÂMICO E BULLETPROOF (SVELTIA / DECAP / NETLIFY / ALL STORAGES)
       let activeToken = null;
@@ -1175,7 +1091,7 @@
       document.getElementById("status-text").textContent = "Conectando ao Google Gemini API...";
 
       // Build structured prompt for high-converting blog posts in Astro format
-      const prompt = `Você é um redator especialista em SEO de alta conversão para o blog Bibliolab.
+      const prompt = `Você é um redator especialista em SEO de alta conversão para o blog Bibliolab Perfumes.
 Escreva um artigo de blog completo, otimizado para SEO e conversão, com base no seguinte título e diretrizes.
 
 INFORMAÇÕES DO ARTIGO:
@@ -1352,48 +1268,6 @@ Apenas retorne o frontmatter YAML e o corpo do artigo. Não acrescente explicaç
       }
 
       publishBtn.disabled = true;
-      publishBtn.textContent = "Processando Imagens...";
-
-      // Check if there is a local file to upload
-      const fileInput = document.getElementById("post-hero-file");
-      if (fileInput && fileInput.files && fileInput.files[0]) {
-        try {
-          const file = fileInput.files[0];
-          const base64 = await fileToBase64(file);
-          const ext = file.name.split('.').pop() || 'png';
-          const rand = Math.floor(100 + Math.random() * 900);
-          const cleanSlug = (parsedFrontmatter.title || "post")
-            .toLowerCase()
-            .normalize("NFD")
-            .replace(/[\u0300-\u036f]/g, "")
-            .replace(/[^a-z0-9]+/g, "-")
-            .replace(/(^-|-$)/g, "");
-          
-          const uploadedImgPath = `public/uploads/${cleanSlug}-${rand}.${ext}`;
-          publishBtn.textContent = "Enviando Imagem ao GitHub...";
-          await uploadFileToGitHub(githubToken, uploadedImgPath, base64);
-          
-          const frontmatterPath = `/uploads/${cleanSlug}-${rand}.${ext}`;
-          parsedFrontmatter.heroImage = frontmatterPath;
-          
-          // Re-inject updated heroImage into generatedMarkdown
-          generatedMarkdown = generatedMarkdown.replace(/heroImage:\s*["']?(.*?)["']?\s*\n/, `heroImage: "${frontmatterPath}"\n`);
-        } catch (err) {
-          console.error(err);
-          alert("Erro ao enviar imagem local: " + err.message);
-          publishBtn.disabled = false;
-          publishBtn.textContent = "🚀 Publicar Diretamente no Site";
-          return;
-        }
-      }
-      
-      if (!githubToken) {
-        alert("Por favor, configure o Token de Acesso do GitHub para publicar.");
-        toggleSettings();
-        return;
-      }
-
-      publishBtn.disabled = true;
       publishBtn.textContent = "Publicando no GitHub...";
 
       // Generate a clean slug for the filename
@@ -1528,45 +1402,10 @@ Apenas retorne o frontmatter YAML e o corpo do artigo. Não acrescente explicaç
           heroImage = heroOptions[i % heroOptions.length];
         }
 
-        const cleanSlug = title
-          .toLowerCase()
-          .normalize("NFD")
-          .replace(/[\u0300-\u036f]/g, "")
-          .replace(/[^a-z0-9]+/g, "-")
-          .replace(/(^-|-$)/g, "");
-
-        // Check if there is a local image file assigned to this post
-        const fileInput = document.getElementById(`bulk-file-${i}`);
-        const urlInput = document.getElementById(`bulk-url-${i}`);
-        if (fileInput && fileInput.files && fileInput.files[0]) {
-          try {
-            const file = fileInput.files[0];
-            const base64 = await fileToBase64(file);
-            const ext = file.name.split('.').pop() || 'png';
-            const rand = Math.floor(100 + Math.random() * 900);
-            
-            const uploadedImgPath = `public/uploads/${cleanSlug}-${rand}.${ext}`;
-            const frontmatterPath = `/uploads/${cleanSlug}-${rand}.${ext}`;
-            
-            const logImg = addLog(`[${currentNum}/${totalNum}] Enviando imagem "${file.name}"...`, "active");
-            await uploadFileToGitHub(githubToken, uploadedImgPath, base64);
-            logImg.style.color = "var(--success)";
-            logImg.textContent = `✓ [${currentNum}/${totalNum}] Imagem enviada: ${frontmatterPath}`;
-            
-            heroImage = frontmatterPath;
-          } catch (err) {
-            console.error(err);
-            addLog(`[${currentNum}/${totalNum}] Erro ao enviar imagem: ${err.message}`, "error");
-          }
-        } else if (urlInput && urlInput.value.trim().length > 0) {
-          heroImage = urlInput.value.trim();
-        }
-
-
         const logGen = addLog(`[${currentNum}/${totalNum}] Gerando artigo: "${title}"...`, "active");
         document.getElementById("status-text").textContent = `Progresso: ${currentNum}/${totalNum} posts`;
 
-        const prompt = `Você é um redator especialista em SEO de alta conversão para o blog Bibliolab.
+        const prompt = `Você é um redator especialista em SEO de alta conversão para o blog Bibliolab Perfumes.
 Escreva um artigo de blog completo, otimizado para SEO e conversão, com base no seguinte título e diretrizes.
 
 INFORMAÇÕES DO ARTIGO:

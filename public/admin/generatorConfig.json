@@ -1,0 +1,17 @@
+{
+  "theme": "bibliolab",
+  "categories": [
+    { "value": "perfumes-masculinos", "label": "Perfumes Masculinos" },
+    { "value": "perfumes-femininos", "label": "Perfumes Femininos" },
+    { "value": "dicas", "label": "Dicas" },
+    { "value": "analises", "label": "Análises" }
+  ],
+  "images": [
+    { "value": "/dior-sauvage.jpg", "label": "Dior Sauvage" },
+    { "value": "/bleu-chanel.jpg", "label": "Bleu de Chanel" },
+    { "value": "/good-girl.jpg", "label": "Good Girl Carolina Herrera" },
+    { "value": "/avon-musk-freeze.jpg", "label": "Avon Musk Freeze" },
+    { "value": "/frigobar-cosmeticos.jpg", "label": "Frigobar de Cosméticos" },
+    { "value": "/mister-freeze.jpg", "label": "Mister Freeze" }
+  ]
+}
