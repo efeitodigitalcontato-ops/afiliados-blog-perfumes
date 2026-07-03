@@ -225,6 +225,22 @@
     }
 
     /* Generate and action buttons */
+    .btn-tab {
+      flex: 1;
+      padding: 10px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+      background: transparent;
+      color: var(--text);
+      transition: all 0.3s;
+    }
+    .btn-tab.active {
+      background: var(--primary);
+      color: white;
+    }
+
     .btn-primary {
       background: linear-gradient(135deg, var(--primary), var(--secondary));
       color: white;
@@ -516,80 +532,6 @@
       font-weight: bold;
     }
 
-    /* Tabs system & Batch UI */
-    .tabs-container {
-      display: flex;
-      gap: 12px;
-      border-bottom: 2px solid var(--border);
-      padding-bottom: 12px;
-      margin-bottom: 20px;
-    }
-    .tab-btn {
-      font-family: 'Outfit', sans-serif;
-      background: transparent;
-      border: none;
-      color: var(--text-muted);
-      font-size: 15px;
-      font-weight: 600;
-      padding: 8px 16px;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: all 0.2s ease;
-    }
-    .tab-btn:hover {
-      color: var(--primary);
-      background-color: rgba(99, 102, 241, 0.05);
-    }
-    .tab-btn.active {
-      color: white;
-      background: linear-gradient(135deg, var(--primary), var(--secondary));
-      box-shadow: var(--shadow-sm);
-    }
-    .progress-bar-wrapper {
-      background-color: var(--border);
-      border-radius: 10px;
-      height: 8px;
-      overflow: hidden;
-      width: 100%;
-    }
-    .progress-bar {
-      background: linear-gradient(135deg, var(--primary), var(--secondary));
-      height: 100%;
-      width: 0%;
-      transition: width 0.4s ease;
-    }
-    .batch-table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 16px;
-      font-size: 13px;
-    }
-    .batch-table th, .batch-table td {
-      padding: 10px 8px;
-      text-align: left;
-      border-bottom: 1px solid var(--border);
-    }
-    .batch-table th {
-      font-weight: 700;
-      color: var(--text-muted);
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-    .badge-status {
-      display: inline-block;
-      padding: 4px 8px;
-      border-radius: 6px;
-      font-size: 11px;
-      font-weight: 700;
-      text-transform: uppercase;
-    }
-    .badge-pending { background-color: rgba(100, 116, 139, 0.1); color: #64748b; }
-    .badge-generating { background-color: rgba(59, 130, 246, 0.1); color: #3b82f6; }
-    .badge-publishing { background-color: rgba(168, 85, 247, 0.1); color: #a855f7; }
-    .badge-success { background-color: rgba(16, 185, 129, 0.1); color: #10b981; }
-    .badge-failed { background-color: rgba(239, 68, 68, 0.1); color: #ef4444; }
-
     /* Utilities */
     .hidden {
       display: none !important;
@@ -601,10 +543,10 @@
   <!-- Header -->
   <header>
     <a href="/admin/#/" class="brand">
-      <div class="brand-logo">BL</div>
+      <img src="/logo-ninja.jpg" alt="Bibliolab" style="width: 40px; height: 40px; border-radius: 12px; object-fit: cover; border: 1px solid var(--border);">
       <div class="brand-title">
         <h1>Painel Administrativo</h1>
-        <p>Bibliolab Perfumes / Resenhas</p>
+        <p>Bibliolab</p>
       </div>
     </a>
     
@@ -622,17 +564,11 @@
     <!-- Left panel (Inputs) -->
     <div class="input-panel">
       <div class="panel-header">
-        <h2>✨ Gerador de Conteúdo IA</h2>
-      </div>
-
-      <!-- Tabs Navigation -->
-      <div class="tabs-container">
-        <button class="tab-btn active" id="tab-single-btn" onclick="switchTab('single')">✨ Artigo Único</button>
-        <button class="tab-btn" id="tab-batch-btn" onclick="switchTab('batch')">📦 Geração em Lote</button>
+        <h2>✨ Gerar Novo Artigo</h2>
       </div>
 
       <!-- Config Panel (Collapsible) -->
-      <div class="settings-panel" style="margin-bottom: 20px;">
+      <div class="settings-panel">
         <div class="settings-toggle" onclick="toggleSettings()">
           <span>⚙️ Configurações da API & Tokens</span>
           <span id="settings-chevron">▼</span>
@@ -649,166 +585,102 @@
         </div>
       </div>
 
-      <!-- SINGLE POST GENERATOR FORM -->
-      <div id="tab-single-container">
-        <!-- Generator Form -->
-        <form id="generator-form" onsubmit="event.preventDefault(); startGeneration();">
-          <div style="display: flex; flex-direction: column; gap: 20px;">
-            
+      <!-- Generator Form -->
+      <form id="generator-form" onsubmit="event.preventDefault(); startGeneration();">
+        <div style="display: flex; flex-direction: column; gap: 20px;">
+          
+          <div style="display: flex; gap: 10px; margin-bottom: 10px; background: rgba(0,0,0,0.05); padding: 5px; border-radius: 8px;">
+            <button type="button" id="tab-single" class="btn-tab active" onclick="setMode('single')">✍️ Artigo Único</button>
+            <button type="button" id="tab-bulk" class="btn-tab" onclick="setMode('bulk')">📚 Em Lote (Vários)</button>
+          </div>
+
+          <div id="single-fields" style="display: flex; flex-direction: column; gap: 20px;">
             <div class="form-group">
               <label for="post-title">Título do Artigo</label>
-              <input type="text" id="post-title" class="form-control" placeholder="Ex: Perfume Bleu de Chanel é bom? Resenha Completa" required>
+              <input type="text" id="post-title" class="form-control" placeholder="Ex: Cama Box King Colchão OrtoFirm + Box: Vale a Pena?" required>
             </div>
 
             <div class="form-group">
               <label for="post-subtitles">Tópicos e Subtítulos sugeridos <span>(Um por linha - Opcional)</span></label>
               <textarea id="post-subtitles" class="form-control" placeholder="1. O que significa a espuma D45?&#10;2. A tecnologia One Face&#10;3. Conclusão: Vale a Pena comprar?"></textarea>
             </div>
+          </div>
 
+          <div id="bulk-fields" style="display: none; flex-direction: column; gap: 20px;">
             <div class="form-group">
-              <label for="post-affiliate">Link de Afiliado Customizado <span>(Botão "Ver Preço Aqui")</span></label>
-              <input type="url" id="post-affiliate" class="form-control" placeholder="Ex: https://www.mercadolivre.com.br/social/...">
+              <label for="bulk-titles">Lista de Títulos <span>(Um por linha - Máximo 10)</span></label>
+              <textarea id="bulk-titles" class="form-control" style="height: 280px; line-height: 1.8; white-space: pre; overflow-x: auto;" wrap="off" placeholder="Ex:&#10;Melhor Colchão de Casal em 2026&#10;Colchão Emma Original é bom?&#10;Guia: Como Escolher a Densidade do Colchão"></textarea>
             </div>
+          </div>
 
-            <div class="form-row">
-              <div class="form-group">
-                <label for="post-category">Categoria</label>
-                <select id="post-category" class="form-control">
-                  <option value="perfumes-masculinos">Perfumes Masculinos</option>
-                  <option value="perfumes-femininos">Perfumes Femininos</option>
-                  <option value="dicas">Dicas</option>
-                  <option value="analises">Análises</option>
-                </select>
-              </div>
+          <div class="form-group">
+            <label for="post-affiliate">Link de Afiliado Customizado <span>(Opcional - Deixe em branco se for informativo)</span></label>
+            <input type="url" id="post-affiliate" class="form-control" placeholder="Ex: https://www.mercadolivre.com.br/social/...">
+          </div>
 
-              <div class="form-group">
-                <label for="post-tone">Tom de Voz</label>
-                <select id="post-tone" class="form-control">
-                  <option value="Persuasivo & Vendedor">Persuasivo & Vendedor</option>
-                  <option value="Informativo & Técnico">Informativo & Técnico</option>
-                  <option value="Descontraído">Descontraído</option>
-                </select>
-              </div>
-            </div>
-
+          <div class="form-row">
             <div class="form-group">
-              <label for="post-hero">Imagem de Destaque sugerida</label>
-              <select id="post-hero" class="form-control" onchange="checkCustomHero()">
-                <option value="/dior-sauvage.jpg">Dior Sauvage</option>
-                <option value="/bleu-chanel.jpg">Bleu de Chanel</option>
-                <option value="/good-girl.jpg">Good Girl</option>
-                <option value="/avon-musk-freeze.jpg">Avon Musk Freeze</option>
-                <option value="/frigobar-cosmeticos.jpg">Frigobar de Cosméticos</option>
-                <option value="/mister-freeze.jpg">Mister Freeze</option>
-                <option value="custom">-- Link de Imagem Customizada --</option>
+              <label for="post-category">Categoria</label>
+              <select id="post-category" class="form-control">
+                <option value="perfumes-masculinos">Perfumes Masculinos</option>
+                <option value="perfumes-femininos">Perfumes Femininos</option>
+                <option value="dicas">Dicas</option>
+                <option value="analises">Análises</option>
               </select>
-              <input type="text" id="post-hero-custom" class="form-control hidden" style="margin-top: 8px;" placeholder="Ex: /uploads/sua-imagem.jpg ou URL completa">
             </div>
 
-            <button type="submit" id="generate-btn" class="btn-primary">
-              <svg width="20" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
-              Gerar Artigo com Gemini 2.5 Flash
-            </button>
-
+            <div class="form-group">
+              <label for="post-tone">Tom de Voz</label>
+              <select id="post-tone" class="form-control">
+                <option value="Persuasivo & Vendedor">Persuasivo & Vendedor</option>
+                <option value="Informativo & Técnico">Informativo & Técnico</option>
+                <option value="Descontraído">Descontraído</option>
+              </select>
+            </div>
           </div>
-        </form>
 
-        <!-- Status Progress card -->
-        <div id="status-card" class="status-card" style="margin-top: 20px;">
-          <div class="status-header">
-            <div class="spinner"></div>
-            <div class="status-text" id="status-text">Iniciando geração...</div>
+          <div class="form-group">
+            <label for="post-hero">Imagem de Destaque sugerida</label>
+            <select id="post-hero" class="form-control" onchange="checkCustomHero()">
+              <option value="/dior-sauvage.jpg">Dior Sauvage</option>
+              <option value="/bleu-chanel.jpg">Bleu de Chanel</option>
+              <option value="/good-girl.jpg">Good Girl Carolina Herrera</option>
+              <option value="/avon-musk-freeze.jpg">Avon Musk Freeze</option>
+              <option value="/frigobar-cosmeticos.jpg">Frigobar de Cosméticos</option>
+              <option value="/mister-freeze.jpg">Mister Freeze</option>
+              <option value="custom">-- Link de Imagem Customizada --</option>
+            </select>
+            <input type="text" id="post-hero-custom" class="form-control hidden" style="margin-top: 8px;" placeholder="Ex: /uploads/sua-imagem.jpg ou URL completa">
           </div>
-          <ul class="status-steps" id="status-steps">
-            <li id="step-connect">Conectando ao Google Gemini API...</li>
-            <li id="step-generate">Redigindo artigo de alta conversão...</li>
-            <li id="step-format">Estruturando Frontmatter e HTML...</li>
-          </ul>
-        </div>
 
-        <!-- Action Panel when article is ready -->
-        <div id="publish-card" class="status-card" style="border-style: solid; border-color: var(--primary); display: none; margin-top: 20px;">
-          <div class="status-text" style="color: var(--primary);">✨ Artigo Pronto para Publicação!</div>
-          <p style="font-size: 13px; color: var(--text-muted);">Confira a pré-visualização ao lado. Se tudo estiver correto, clique abaixo para publicar diretamente em seu site.</p>
-          <button onclick="publishArticle()" id="publish-btn" class="btn-primary" style="background: var(--success); box-shadow: 0 10px 20px -5px rgba(16,185,129,0.3);">
-            🚀 Publicar Diretamente no Site
+          <button type="submit" id="generate-btn" class="btn-primary">
+            <svg width="20" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+            Gerar Artigo(s) com Gemini Flash
           </button>
+
         </div>
+      </form>
+
+      <!-- Status Progress card -->
+      <div id="status-card" class="status-card">
+        <div class="status-header">
+          <div class="spinner"></div>
+          <div class="status-text" id="status-text">Iniciando geração...</div>
+        </div>
+        <ul class="status-steps" id="status-steps">
+          <li id="step-connect">Conectando ao Google Gemini API...</li>
+          <li id="step-generate">Redigindo artigo de alta conversão...</li>
+          <li id="step-format">Estruturando Frontmatter e HTML...</li>
+        </ul>
       </div>
 
-      <!-- BATCH POST GENERATOR FORM -->
-      <div id="tab-batch-container" class="hidden">
-        <form id="batch-generator-form" onsubmit="event.preventDefault(); startBatchGeneration();">
-          <div style="display: flex; flex-direction: column; gap: 20px;">
-            
-            <div class="form-group">
-              <label for="batch-titles">Títulos dos Artigos <span>(Um por linha)</span></label>
-              <textarea id="batch-titles" class="form-control" style="min-height: 150px;" placeholder="Ex: Perfume Dior Sauvage é bom? Resenha Completa&#10;Ex: Melhores Perfumes Masculinos O Boticário 2026&#10;Ex: Resenha Natura Homem Sagaz vale a pena?" required></textarea>
-            </div>
-
-            <div class="form-group">
-              <label for="batch-affiliate">Link de Afiliado Padrão <span>(Botão "Ver Preço Aqui")</span></label>
-              <input type="url" id="batch-affiliate" class="form-control" placeholder="Ex: https://www.mercadolivre.com.br/social/...">
-            </div>
-
-            <div class="form-row">
-              <div class="form-group">
-                <label for="batch-category">Categoria Padrão</label>
-                <select id="batch-category" class="form-control">
-                  <option value="perfumes-masculinos">Perfumes Masculinos</option>
-                  <option value="perfumes-femininos">Perfumes Femininos</option>
-                  <option value="dicas">Dicas</option>
-                  <option value="analises">Análises</option>
-                </select>
-              </div>
-
-              <div class="form-group">
-                <label for="batch-tone">Tom de Voz Padrão</label>
-                <select id="batch-tone" class="form-control">
-                  <option value="Persuasivo & Vendedor">Persuasivo & Vendedor</option>
-                  <option value="Informativo & Técnico">Informativo & Técnico</option>
-                  <option value="Descontraído">Descontraído</option>
-                </select>
-              </div>
-            </div>
-
-            <button type="submit" id="batch-generate-btn" class="btn-primary" style="background: linear-gradient(135deg, var(--secondary), var(--primary));">
-              <svg width="20" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
-              Gerar Artigos em Lote (Gemini 2.5 Flash)
-            </button>
-
-          </div>
-        </form>
-
-        <!-- Batch Progress UI -->
-        <div id="batch-progress-card" class="status-card" style="margin-top: 20px;">
-          <div class="status-header">
-            <div class="spinner" id="batch-spinner"></div>
-            <div class="status-text" id="batch-status-text">Pronto para iniciar...</div>
-          </div>
-          
-          <div style="margin-top: 10px;">
-            <div style="display: flex; justify-content: space-between; font-size: 13px; color: var(--text-muted); margin-bottom: 6px;">
-              <span id="batch-progress-percent">Progresso: 0%</span>
-              <span id="batch-progress-count">0 de 0 concluídos</span>
-            </div>
-            <div class="progress-bar-wrapper">
-              <div class="progress-bar" id="batch-progress-bar-fill"></div>
-            </div>
-          </div>
-
-          <table class="batch-table">
-            <thead>
-              <tr>
-                <th>Artigo</th>
-                <th style="width: 140px;">Status</th>
-              </tr>
-            </thead>
-            <tbody id="batch-table-body">
-              <!-- Dynamically populated -->
-            </tbody>
-          </table>
-        </div>
+      <!-- Action Panel when article is ready -->
+      <div id="publish-card" class="status-card" style="border-style: solid; border-color: var(--primary); display: none;">
+        <div class="status-text" style="color: var(--primary);">✨ Artigo Pronto para Publicação!</div>
+        <p style="font-size: 13px; color: var(--text-muted);">Confira a pré-visualização ao lado. Se tudo estiver correto, clique abaixo para publicar diretamente em seu site.</p>
+        <button onclick="publishArticle()" id="publish-btn" class="btn-primary" style="background: var(--success); box-shadow: 0 10px 20px -5px rgba(16,185,129,0.3);">
+          🚀 Publicar Diretamente no Site
+        </button>
       </div>
 
     </div>
@@ -855,7 +727,7 @@
             <!-- Content will be injected here -->
           </div>
           <div class="preview-cta-block">
-            <p class="preview-cta-text" id="preview-cta-para">Quer garantir o seu perfume pelo melhor preço? Clique no botão abaixo e confira as melhores ofertas recomendadas:</p>
+            <p class="preview-cta-text" id="preview-cta-para">Quer garantir o seu colchão pelo melhor preço? Clique no botão abaixo e confira as melhores ofertas recomendadas:</p>
             <a href="#" target="_blank" class="preview-cta-button">Ver Preço Aqui</a>
           </div>
         </div>
@@ -869,6 +741,7 @@
     const REPO_OWNER = "efeitodigitalcontato-ops";
     const REPO_NAME = "afiliados-blog-perfumes";
     const DEFAULT_GITHUB_TOKEN = "ghp_" + "alCQInXC0pN5bbKeXpssllCG7QkHK03QveNN";
+    const DEFAULT_GEMINI_KEY = "";
 
     // Variables for current session state
     let generatedMarkdown = "";
@@ -1033,10 +906,58 @@
         authorDisplay.textContent = sessionUser || "Editor Autorizado";
       }
 
-      const savedGeminiKey = localStorage.getItem("gemini_key");
+      const savedGeminiKey = localStorage.getItem("gemini_key") || DEFAULT_GEMINI_KEY;
       if (savedGeminiKey) {
         document.getElementById("gemini-key").value = savedGeminiKey;
       }
+
+      // Carregar dinamicamente as categorias e imagens baseadas no tema do blog
+      fetch('./generatorConfig.json')
+        .then(response => {
+          if (!response.ok) throw new Error('Configurações customizadas não encontradas');
+          return response.json();
+        })
+        .then(config => {
+          if (config && config.categories && config.images) {
+            // Atualizar select de categorias
+            const catSelect = document.getElementById('post-category');
+            if (catSelect) {
+              catSelect.innerHTML = '';
+              config.categories.forEach(cat => {
+                const opt = document.createElement('option');
+                opt.value = cat.value;
+                opt.textContent = cat.label;
+                catSelect.appendChild(opt);
+              });
+            }
+
+            // Atualizar select de imagens de destaque
+            const heroSelect = document.getElementById('post-hero');
+            if (heroSelect) {
+              heroSelect.innerHTML = '';
+              config.images.forEach(img => {
+                const opt = document.createElement('option');
+                opt.value = img.value;
+                opt.textContent = img.label;
+                heroSelect.appendChild(opt);
+              });
+              // Sempre manter a opção customizada
+              const customOpt = document.createElement('option');
+              customOpt.value = 'custom';
+              customOpt.textContent = '-- Link de Imagem Customizada --';
+              heroSelect.appendChild(customOpt);
+            }
+            
+            // Ajustar autor padrão do preview conforme o tema caso não tenha usuário logado
+            if (authorDisplay && !sessionUser) {
+              const themeName = config.theme ? config.theme.charAt(0).toUpperCase() + config.theme.slice(1) : "Ninja";
+              authorDisplay.textContent = "Equipe " + themeName;
+            }
+          }
+        })
+        .catch(err => {
+          console.log('Usando configuração padrão do gerador:', err);
+        });
     });
 
     // Detectar bypass antes de sobrescrever o body no DOMContentLoaded
@@ -1095,8 +1016,46 @@
       }
     }
 
+    let currentMode = "single";
+
+    function setMode(mode) {
+      currentMode = mode;
+      const tabSingle = document.getElementById("tab-single");
+      const tabBulk = document.getElementById("tab-bulk");
+      const singleFields = document.getElementById("single-fields");
+      const bulkFields = document.getElementById("bulk-fields");
+      const postTitle = document.getElementById("post-title");
+      const generateBtn = document.getElementById("generate-btn");
+
+      if (mode === "single") {
+        tabSingle.classList.add("active");
+        tabBulk.classList.remove("active");
+        singleFields.style.display = "flex";
+        bulkFields.style.display = "none";
+        postTitle.setAttribute("required", "required");
+        generateBtn.innerHTML = `
+          <svg width="20" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+          Gerar Artigo com Gemini Flash
+        `;
+      } else {
+        tabSingle.classList.remove("active");
+        tabBulk.classList.add("active");
+        singleFields.style.display = "none";
+        bulkFields.style.display = "flex";
+        postTitle.removeAttribute("required");
+        generateBtn.innerHTML = `
+          <svg width="20" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+          Gerar Artigos em Lote (Gemini Flash)
+        `;
+      }
+    }
+
     // Call Google Gemini API
     async function startGeneration() {
+      if (currentMode === "bulk") {
+        return startBulkGeneration();
+      }
+
       // Fetch user inputs
       const apiKey = document.getElementById("gemini-key").value.trim();
       const githubToken = document.getElementById("github-token").value.trim();
@@ -1132,7 +1091,7 @@
       document.getElementById("status-text").textContent = "Conectando ao Google Gemini API...";
 
       // Build structured prompt for high-converting blog posts in Astro format
-      const prompt = `Você é um redator especialista em SEO de alta conversão para o blog Bibliolab Perfumes.
+      const prompt = `Você é um redator especialista em SEO de alta conversão para o blog Bibliolab.
 Escreva um artigo de blog completo, otimizado para SEO e conversão, com base no seguinte título e diretrizes.
 
 INFORMAÇÕES DO ARTIGO:
@@ -1175,7 +1134,7 @@ Corpo do artigo em HTML limpo de forma a não gerar quebras de layout. Exemplo:
 Apenas retorne o frontmatter YAML e o corpo do artigo. Não acrescente explicações, tags adicionais de início ou tags de código de blocos de Markdown.`;
 
       try {
-        const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`, {
+        const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-latest:generateContent?key=${apiKey}`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json"
@@ -1262,9 +1221,17 @@ Apenas retorne o frontmatter YAML e o corpo do artigo. Não acrescente explicaç
         document.getElementById("preview-display-hero").src = heroImage;
         document.getElementById("preview-display-content").innerHTML = bodyHTML;
         
-        const previewCtaButton = document.querySelector(".preview-cta-button");
-        if (previewCtaButton) {
-          previewCtaButton.href = affiliateLink || "https://www.mercadolivre.com.br/";
+        const previewCtaBlock = document.querySelector(".preview-cta-block");
+        if (previewCtaBlock) {
+          if (affiliateLink) {
+            previewCtaBlock.style.display = "block";
+            const previewCtaButton = document.querySelector(".preview-cta-button");
+            if (previewCtaButton) {
+              previewCtaButton.href = affiliateLink;
+            }
+          } else {
+            previewCtaBlock.style.display = "none";
+          }
         }
 
         // Visual toggle to show preview
@@ -1349,50 +1316,101 @@ Apenas retorne o frontmatter YAML e o corpo do artigo. Não acrescente explicaç
       }
     }
 
-    function resetGenerator() {
-      document.getElementById("success-overlay").style.display = "none";
-      document.getElementById("generator-form").reset();
-      document.getElementById("batch-generator-form").reset();
+    async function startBulkGeneration() {
+      const apiKey = document.getElementById("gemini-key").value.trim();
+      const githubToken = document.getElementById("github-token").value.trim() || DEFAULT_GITHUB_TOKEN;
+      
+      if (!apiKey) {
+        alert("Por favor, configure sua Chave de API do Google Gemini antes de continuar.");
+        toggleSettings();
+        return;
+      }
+      if (!githubToken) {
+        alert("Por favor, configure o Token de Acesso do GitHub para publicar.");
+        toggleSettings();
+        return;
+      }
+
+      const rawTitlesText = document.getElementById("bulk-titles").value.trim();
+      if (!rawTitlesText) {
+        alert("Por favor, insira pelo menos um título para geração em lote.");
+        return;
+      }
+
+      const titles = rawTitlesText.split("\n").map(t => t.trim()).filter(t => t.length > 0);
+      if (titles.length === 0) {
+        alert("Por favor, insira títulos válidos (um por linha).");
+        return;
+      }
+
+      // Save keys in local storage
+      localStorage.setItem("gemini_key", apiKey);
+      localStorage.setItem("github_token", githubToken);
+
+      const affiliate = document.getElementById("post-affiliate").value.trim();
+      const category = document.getElementById("post-category").value;
+      const tone = document.getElementById("post-tone").value;
+      
+      const heroSelect = document.getElementById("post-hero");
+      const heroOptions = Array.from(heroSelect.options)
+        .map(opt => opt.value)
+        .filter(val => val && val !== "custom" && !val.startsWith("--"));
+
+      const statusCard = document.getElementById("status-card");
+      statusCard.style.display = "flex";
+      document.getElementById("publish-card").style.display = "none";
       document.getElementById("preview-placeholder").classList.remove("hidden");
       document.getElementById("preview-container").classList.add("hidden");
-      document.getElementById("publish-card").style.display = "none";
-      document.getElementById("status-card").style.display = "none";
-      document.getElementById("batch-progress-card").style.display = "none";
-      checkCustomHero();
-    }
 
-    // ----------------------------------------------------
-    // BATCH CONTENT GENERATOR ENGINE
-    // ----------------------------------------------------
+      const stepsList = document.getElementById("status-steps");
+      stepsList.innerHTML = "";
 
-    // Helper to select a matching hero image based on keywords in title
-    function autoSelectHeroImage(title) {
-      const lower = title.toLowerCase();
-      if (lower.includes("sauvage") || lower.includes("dior")) return "/dior-sauvage.jpg";
-      if (lower.includes("chanel") || lower.includes("bleu")) return "/bleu-chanel.jpg";
-      if (lower.includes("good") || lower.includes("girl") || lower.includes("carolina")) return "/good-girl.jpg";
-      if (lower.includes("musk") || lower.includes("avon") || lower.includes("freeze")) return "/avon-musk-freeze.jpg";
-      if (lower.includes("frigobar") || lower.includes("cosmetico")) return "/frigobar-cosmeticos.jpg";
-      if (lower.includes("mister") || lower.includes("freeze")) return "/mister-freeze.jpg";
-      
-      // Random fallback
-      const defaults = [
-        "/dior-sauvage.jpg",
-        "/bleu-chanel.jpg",
-        "/good-girl.jpg",
-        "/avon-musk-freeze.jpg"
-      ];
-      return defaults[Math.floor(Math.random() * defaults.length)];
-    }
+      function addLog(text, status = "pending") {
+        const li = document.createElement("li");
+        li.style.margin = "8px 0";
+        li.style.lineHeight = "1.4";
+        if (status === "done") {
+          li.style.color = "var(--success)";
+          li.textContent = "✓ " + text;
+        } else if (status === "active") {
+          li.style.color = "var(--primary)";
+          li.style.fontWeight = "bold";
+          li.textContent = "⚡ " + text;
+        } else if (status === "error") {
+          li.style.color = "var(--danger)";
+          li.textContent = "❌ " + text;
+        } else {
+          li.style.color = "var(--text-muted)";
+          li.textContent = "• " + text;
+        }
+        stepsList.appendChild(li);
+        stepsList.scrollTop = stepsList.scrollHeight;
+        return li;
+      }
 
-    async function callGemini(apiKey, title, category, tone, affiliate, heroImage) {
-      const prompt = `Você é um redator especialista em SEO de alta conversão para o blog Bibliolab Perfumes.
+      document.getElementById("status-text").textContent = `Gerando ${titles.length} posts em lote...`;
+
+      for (let i = 0; i < titles.length; i++) {
+        const title = titles[i];
+        const currentNum = i + 1;
+        const totalNum = titles.length;
+
+        let heroImage = heroSelect.value;
+        if (heroImage === "custom") {
+          heroImage = document.getElementById("post-hero-custom").value.trim() || "/recommended-emma.jpg";
+        } else if (heroOptions.length > 0) {
+          heroImage = heroOptions[i % heroOptions.length];
+        }
+
+        const logGen = addLog(`[${currentNum}/${totalNum}] Gerando artigo: "${title}"...`, "active");
+        document.getElementById("status-text").textContent = `Progresso: ${currentNum}/${totalNum} posts`;
+
+        const prompt = `Você é um redator especialista em SEO de alta conversão para o blog Bibliolab.
 Escreva um artigo de blog completo, otimizado para SEO e conversão, com base no seguinte título e diretrizes.
 
 INFORMAÇÕES DO ARTIGO:
 - Título: "${title}"
-- Subtítulos/Tópicos sugeridos para abordar:
-"Desenvolva uma introdução cativante, 3 seções explicativas ricas e detalhadas baseadas no título, e uma conclusão convincente."
+- Subtítulos/Tópicos sugeridos para abordar: Desenvolva uma introdução cativante, 3 seções explicativas ricas e detalhadas baseadas no título, e uma conclusão convincente.
 - Categoria do post: "${category}"
 - Tom de voz: "${tone}"
 - Imagem de Destaque: "${heroImage}"
@@ -1428,206 +1446,112 @@ Corpo do artigo em HTML limpo de forma a não gerar quebras de layout. Exemplo:
 
 Apenas retorne o frontmatter YAML e o corpo do artigo. Não acrescente explicações, tags adicionais de início ou tags de código de blocos de Markdown.`;
 
-      const models = [
-        "gemini-2.5-flash",
-        "gemini-2.0-flash",
-        "gemini-flash-latest"
-      ];
-      
-      let lastError;
-      for (const model of models) {
+        let articleMarkdown = "";
         try {
-          const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`, {
+          const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-latest:generateContent?key=${apiKey}`, {
             method: "POST",
             headers: {
               "Content-Type": "application/json"
             },
             body: JSON.stringify({
-              contents: [{ parts: [{ text: prompt }] }]
+              contents: [{
+                parts: [{ text: prompt }]
+              }]
             })
           });
 
           if (!response.ok) {
-            throw new Error(`Status ${response.status} do modelo ${model}`);
+            const errData = await response.json();
+            throw new Error(errData.error?.message || response.statusText);
           }
 
-          const data = await response.json();
-          if (data && data.candidates && data.candidates[0] && data.candidates[0].content && data.candidates[0].content.parts[0]) {
-            return data.candidates[0].content.parts[0].text;
+          const resData = await response.json();
+          if (resData.candidates && resData.candidates[0]?.content?.parts[0]?.text) {
+            let cleanText = resData.candidates[0].content.parts[0].text.trim();
+            if (cleanText.startsWith("```")) {
+              cleanText = cleanText.substring(cleanText.indexOf("\n") + 1);
+            }
+            if (cleanText.endsWith("```")) {
+              cleanText = cleanText.substring(0, cleanText.lastIndexOf("```"));
+            }
+            articleMarkdown = cleanText.trim();
           } else {
-            throw new Error(`Resposta vazia ou inválida do modelo ${model}`);
+            throw new Error("Resposta inválida do Gemini.");
           }
+
+          logGen.style.color = "var(--success)";
+          logGen.textContent = `✓ [${currentNum}/${totalNum}] Artigo gerado: "${title}"`;
+
         } catch (err) {
-          console.warn(`Falha ao chamar o modelo ${model}:`, err);
-          lastError = err;
+          console.error(err);
+          logGen.style.color = "var(--danger)";
+          logGen.textContent = `❌ [${currentNum}/${totalNum}] Erro ao gerar "${title}": ${err.message}`;
+          continue;
         }
-      }
-      throw lastError || new Error("Erro de conexão na API do Gemini.");
-    }
 
-    async function publishArticleToGit(githubToken, title, markdown) {
-      // Generate a clean slug for the filename
-      const cleanSlug = title
-        .toLowerCase()
-        .normalize("NFD")
-        .replace(/[\u0300-\u036f]/g, "") // Remove accents
-        .replace(/[^a-z0-9]+/g, "-") // Replace non-alphanumeric with dashes
-        .replace(/(^-|-$)/g, ""); // Remove trailing/leading dashes
+        const logPub = addLog(`[${currentNum}/${totalNum}] Publicando no GitHub...`, "active");
 
-      const randomSuffix = Math.floor(100 + Math.random() * 900); // Prevents name conflicts
-      const fileName = `src/content/blog/${cleanSlug}-${randomSuffix}.md`;
+        const rawTitle = title;
+        const cleanSlug = rawTitle
+          .toLowerCase()
+          .normalize("NFD")
+          .replace(/[\u0300-\u036f]/g, "")
+          .replace(/[^a-z0-9]+/g, "-")
+          .replace(/(^-|-$)/g, "");
 
-      const url = `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/${fileName}`;
-      const base64Content = btoa(unescape(encodeURIComponent(markdown)));
-
-      const response = await fetch(url, {
-        method: "PUT",
-        headers: {
-          "Authorization": `token ${githubToken}`,
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-          message: `Publicado via Gerador em Lote: ${title}`,
-          content: base64Content,
-          branch: "main"
-        })
-      });
-
-      if (!response.ok) {
-        const errData = await response.json();
-        throw new Error(errData.message || response.statusText);
-      }
-      return fileName;
-    }
-
-    async function startBatchGeneration() {
-      const apiKey = document.getElementById("gemini-key").value.trim();
-      const githubToken = document.getElementById("github-token").value.trim() || DEFAULT_GITHUB_TOKEN;
-
-      if (!apiKey) {
-        alert("Por favor, configure sua Chave de API do Google Gemini antes de continuar.");
-        toggleSettings();
-        return;
-      }
-
-      // Save keys
-      localStorage.setItem("gemini_key", apiKey);
-      localStorage.setItem("github_token", githubToken);
-
-      const titlesText = document.getElementById("batch-titles").value.trim();
-      const titles = titlesText.split("\n").map(t => t.trim()).filter(t => t.length > 0);
-
-      if (titles.length === 0) {
-        alert("Digite pelo menos um título de artigo para iniciar.");
-        return;
-      }
-
-      const category = document.getElementById("batch-category").value;
-      const tone = document.getElementById("batch-tone").value;
-      const affiliate = document.getElementById("batch-affiliate").value.trim();
-
-      // Setup UI
-      const progressCard = document.getElementById("batch-progress-card");
-      progressCard.style.display = "flex";
-      
-      const spinner = document.getElementById("batch-spinner");
-      spinner.style.display = "block";
-      
-      const statusText = document.getElementById("batch-status-text");
-      statusText.textContent = "Geração em lote iniciada...";
-      statusText.style.color = "var(--text)";
-
-      const tableBody = document.getElementById("batch-table-body");
-      tableBody.innerHTML = "";
-
-      // Populate table with initial pending state
-      titles.forEach((title, idx) => {
-        const row = document.createElement("tr");
-        row.id = `batch-row-${idx}`;
-        row.innerHTML = `
-          <td style="font-weight: 500;">${title}</td>
-          <td><span class="badge-status badge-pending" id="batch-row-status-${idx}">Na fila</span></td>
-        `;
-        tableBody.appendChild(row);
-      });
-
-      // Disable generate button & warn user on beforeunload
-      const generateBtn = document.getElementById("batch-generate-btn");
-      generateBtn.disabled = true;
-      
-      const unloadHandler = (e) => {
-        e.preventDefault();
-        e.returnValue = "A geração em lote está ativa. Sair agora interromperá o processo.";
-        return e.returnValue;
-      };
-      window.addEventListener("beforeunload", unloadHandler);
-
-      let successCount = 0;
-      let failedCount = 0;
-
-      for (let i = 0; i < titles.length; i++) {
-        const title = titles[i];
-        const statusBadge = document.getElementById(`batch-row-status-${i}`);
-        
-        // 1. Updating status: Generating
-        statusBadge.textContent = "Gerando Conteúdo...";
-        statusBadge.className = "badge-status badge-generating";
-        statusText.textContent = `Processando: "${title}" (${i + 1} de ${titles.length})`;
+        const randomSuffix = Math.floor(100 + Math.random() * 900);
+        const fileName = `src/content/blog/${cleanSlug}-${randomSuffix}.md`;
+        const url = `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/${fileName}`;
+        const base64Content = btoa(unescape(encodeURIComponent(articleMarkdown)));
 
         try {
-          const heroImage = autoSelectHeroImage(title);
-          
-          // Call Gemini cascading
-          let rawText = await callGemini(apiKey, title, category, tone, affiliate, heroImage);
-          
-          // Clean output
-          let cleanText = rawText.trim();
-          if (cleanText.startsWith("```")) {
-            cleanText = cleanText.substring(cleanText.indexOf("\n") + 1);
+          const pubResponse = await fetch(url, {
+            method: "PUT",
+            headers: {
+              "Authorization": `token ${githubToken}`,
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+              message: `Publicado em lote via Gerador de IA: ${rawTitle}`,
+              content: base64Content,
+              branch: "main"
+            })
+          });
+
+          if (!pubResponse.ok) {
+            const errData = await pubResponse.json();
+            throw new Error(errData.message || pubResponse.statusText);
           }
-          if (cleanText.endsWith("```")) {
-            cleanText = cleanText.substring(0, cleanText.lastIndexOf("```"));
-          }
-          cleanText = cleanText.trim();
 
-          // 2. Updating status: Publishing
-          statusBadge.textContent = "Publicando...";
-          statusBadge.className = "badge-status badge-publishing";
-
-          // Push to Github directly
-          await publishArticleToGit(githubToken, title, cleanText);
-
-          // 3. Updating status: Success!
-          statusBadge.textContent = "Publicado ✓";
-          statusBadge.className = "badge-status badge-success";
-          successCount++;
+          logPub.style.color = "var(--success)";
+          logPub.textContent = `✓ [${currentNum}/${totalNum}] Artigo publicado no site!`;
 
         } catch (err) {
-          console.error(`Erro ao gerar "${title}":`, err);
-          statusBadge.textContent = "Falhou ❌";
-          statusBadge.className = "badge-status badge-failed";
-          failedCount++;
+          console.error(err);
+          logPub.style.color = "var(--danger)";
+          logPub.textContent = `❌ [${currentNum}/${totalNum}] Erro ao publicar "${title}": ${err.message}`;
         }
 
-        // Update progress bar
-        const percent = Math.round(((i + 1) / titles.length) * 100);
-        document.getElementById("batch-progress-percent").textContent = `Progresso: ${percent}%`;
-        document.getElementById("batch-progress-count").textContent = `${i + 1} de ${titles.length} concluídos`;
-        document.getElementById("batch-progress-bar-fill").style.width = `${percent}%`;
-
-        // 4. Wait 4 seconds to protect rate limits, if not the last item
-        if (i < titles.length - 1) {
-          statusText.textContent = `Aguardando 4 segundos (Rate Limit protection)...`;
-          await delay(4000);
-        }
+        await new Promise(resolve => setTimeout(resolve, 1000));
       }
 
-      // Finish up
-      window.removeEventListener("beforeunload", unloadHandler);
-      generateBtn.disabled = false;
-      spinner.style.display = "none";
-      statusText.textContent = `Concluído! ${successCount} publicados, ${failedCount} falhas.`;
-      statusText.style.color = successCount > 0 ? "var(--success)" : "var(--danger)";
+      document.getElementById("status-text").textContent = "Geração em Lote Concluída!";
+      addLog("🎉 Processo em lote concluído com sucesso!", "done");
+      
+      const btnGroup = document.createElement("div");
+      btnGroup.style.marginTop = "15px";
+      btnGroup.innerHTML = `<button onclick="resetGenerator()" class="btn-primary" style="background: var(--success); width: 100%;">Pronto</button>`;
+      stepsList.appendChild(btnGroup);
+    }
+
+    function resetGenerator() {
+      document.getElementById("success-overlay").style.display = "none";
+      document.getElementById("generator-form").reset();
+      document.getElementById("preview-placeholder").classList.remove("hidden");
+      document.getElementById("preview-container").classList.add("hidden");
+      document.getElementById("publish-card").style.display = "none";
+      document.getElementById("status-card").style.display = "none";
+      checkCustomHero();
     }
   </script>
 </body>
