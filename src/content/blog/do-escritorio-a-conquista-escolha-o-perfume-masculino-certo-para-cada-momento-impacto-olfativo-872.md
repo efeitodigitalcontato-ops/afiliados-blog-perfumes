@@ -1,10 +1,11 @@
 ---
-title: "Do Escritório à Conquista: Escolha o Perfume Masculino Certo Para Cada Momento (Impacto Olfativo)"
-description: "Descubra como escolher o perfume masculino ideal para o trabalho, encontros e ocasiões especiais. Domine a ciência do impacto olfativo agora."
+title: 'Do Escritório à Conquista: Escolha o Perfume Masculino Certo Para Cada Momento (Impacto Olfativo)'
+description: Descubra como escolher o perfume masculino ideal para o trabalho, encontros e ocasiões especiais. Domine a ciência do impacto olfativo agora.
 pubDate: 2026-07-03
-category: "perfumes-masculinos"
-heroImage: "/mister-freeze.jpg"
-affiliateLink: "https://meli.la/2SfeDhM"
+heroImage: /uploads/Do Escritório à Conquista Escolha o Perfume Masculino Certo Para Cada Momento (Impacto Olfativo).png
+category: perfumes-masculinos
+author: Equipe
+affiliateLink: https://meli.la/2SfeDhM
 ---
 
 <h2>O Poder do Impacto Olfativo no Subconsciente Masculino</h2>
