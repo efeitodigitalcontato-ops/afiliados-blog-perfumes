@@ -1,10 +1,11 @@
 ---
-title: "Natura Essencial vs. Clássicos Importados: Qual Perfume Masculino Entrega Mais Valor? (Verdade Nua e Crua)"
-description: "Natura Essencial ou importados de grife? Analisamos ingredientes, fixação e custo-benefício para revelar qual entrega mais valor real ao seu bolso."
+title: 'Natura Essencial vs. Clássicos Importados: Qual Perfume Masculino Entrega Mais Valor? (Verdade Nua e Crua)'
+description: Natura Essencial ou importados de grife? Analisamos ingredientes, fixação e custo-benefício para revelar qual entrega mais valor real ao seu bolso.
 pubDate: 2026-07-03
-category: "perfumes-masculinos"
-heroImage: "/bleu-chanel.jpg"
-affiliateLink: "https://meli.la/2SfeDhM"
+heroImage: /uploads/Natura Essencial vs. Clássicos Importados Qual Perfume Masculino Entrega Mais Valor (Verdade Nua e Crua).png
+category: perfumes-masculinos
+author: Euipe
+affiliateLink: https://meli.la/2SfeDhM
 ---
 
 <h2>A Batalha Invisível na Pele: Nacional de Elite ou Status Importado?</h2>
