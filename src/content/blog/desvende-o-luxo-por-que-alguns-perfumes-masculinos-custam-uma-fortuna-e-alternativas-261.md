@@ -1,10 +1,11 @@
 ---
-title: "Desvende o Luxo: Por Que Alguns Perfumes Masculinos Custam Uma Fortuna? (E Alternativas)"
-description: "Descubra os segredos por trás do preço dos perfumes masculinos de luxo e conheça alternativas inteligentes que entregam alta sofisticação sem pesar no bolso."
+title: 'Desvende o Luxo: Por Que Alguns Perfumes Masculinos Custam Uma Fortuna? (E Alternativas)'
+description: Descubra os segredos por trás do preço dos perfumes masculinos de luxo e conheça alternativas inteligentes que entregam alta sofisticação sem pesar no bolso.
 pubDate: 2026-07-03
-category: "perfumes-masculinos"
-heroImage: "/bleu-chanel.jpg"
-affiliateLink: "https://meli.la/2SfeDhM"
+heroImage: /uploads/Desvende o Luxo Por Que Alguns Perfumes Masculinos Custam Uma Fortuna (E Alternativas).png
+category: perfumes-masculinos
+author: Equipe
+affiliateLink: https://meli.la/2SfeDhM
 ---
 
 <h2>A Fascinante Alquimia do Preço na Perfumaria Masculina</h2>
