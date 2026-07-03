@@ -1,10 +1,11 @@
 ---
-title: "Wepink Masculino: O Fenômeno de Virginia Vale o Hype? [Teste de Fixação e Projeção]"
-description: "Análise técnica do perfume Wepink Masculino da Virginia Fonseca. Testamos a fixação, projeção e notas olfativas para revelar se ele realmente vale a pena."
+title: 'Wepink Masculino: O Fenômeno de Virginia Vale o Hype? [Teste de Fixação e Projeção]'
+description: Análise técnica do perfume Wepink Masculino da Virginia Fonseca. Testamos a fixação, projeção e notas olfativas para revelar se ele realmente vale a pena.
 pubDate: 2026-07-03
-category: "perfumes-masculinos"
-heroImage: "/good-girl.jpg"
-affiliateLink: "https://meli.la/2SfeDhM"
+heroImage: /uploads/Wepink Masculino O Fenômeno de Virginia Vale o Hype [Teste de Fixação e Projeção].png
+category: perfumes-masculinos
+author: Equipe
+affiliateLink: https://meli.la/2SfeDhM
 ---
 
 <h2>Wepink Masculino: O Fenômeno de Virginia Vale o Hype?</h2>
