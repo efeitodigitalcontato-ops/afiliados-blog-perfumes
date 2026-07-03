@@ -1,10 +1,11 @@
 ---
-title: "O Segredo Deles: Perfumes Masculinos que Conquistam e Deixam Rastros Inesquecíveis (A Ciência da Atração)"
-description: "Descubra a ciência por trás dos perfumes masculinos que atraem e deixam rastro. Entenda como notas olfativas e projeção impactam a atração."
+title: 'O Segredo Deles: Perfumes Masculinos que Conquistam e Deixam Rastros Inesquecíveis (A Ciência da Atração)'
+description: Descubra a ciência por trás dos perfumes masculinos que atraem e deixam rastro. Entenda como notas olfativas e projeção impactam a atração.
 pubDate: 2026-07-03
-category: "perfumes-masculinos"
-heroImage: "/avon-musk-freeze.jpg"
-affiliateLink: "https://meli.la/2SfeDhM"
+heroImage: /uploads/O Segredo Deles Perfumes Masculinos que Conquistam e Deixam Rastros Inesquecíveis (A Ciência da Atração).png
+category: perfumes-masculinos
+author: Equipe
+affiliateLink: https://meli.la/2SfeDhM
 ---
 
 <h2>A Ciência Oculta por Trás da Atração Olfativa</h2>
