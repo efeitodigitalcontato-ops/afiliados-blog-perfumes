@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://bibliolab.com.br/sitemap-index.xml
