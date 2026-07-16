@@ -1,7 +1,7 @@
 ---
 heroImage: "/desvendando-perfumes-baratos-o-boticrio-fixao-imbatvel-com-preo-justo-top-7.png"
-title: "Desvendando Perfumes Baratos O Boticário: Fixação Imbatível com Preço Justo [TOP 7]"
-description: "Descubra 7 perfumes O Boticário com fixação incrível e preço que cabe no seu bolso! Não sacrifique a qualidade. Clique e encontre sua fragrância perfeita!"
+title: "Desvendando Perfumes Baratos O Boticário: Fixação Imbatível com Preço Justo [TOP 7]'"
+description: "Descubra 7 perfumes O Boticário com fixação incrível e preço que cabe no seu bolso! Não sacrifique a qualidade. Clique e encontre sua fragrância perfeita!'"
 pubDate: 2026-07-03
 category: "Dicas"
 author: "Redação Gerador Ninja"

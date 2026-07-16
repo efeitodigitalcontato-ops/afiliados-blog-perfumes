@@ -1,6 +1,6 @@
 ---
-title: "Descubra 5 perfumes doces importados que valem cada centavo (e onde comprar)."
-description: "Procurando o perfume doce importado perfeito? Conheça 5 fragrâncias irresistíveis com alta fixação e saiba onde comprar com total segurança."
+title: "Descubra 5 perfumes doces importados que valem cada centavo (e onde comprar).'"
+description: "Procurando o perfume doce importado perfeito? Conheça 5 fragrâncias irresistíveis com alta fixação e saiba onde comprar com total segurança.'"
 pubDate: 2026-07-03
 category: "perfumes-femininos"
 heroImage: "https://bibliolab.com.br/uploads/Desvendando%20Perfumes%20Baratos%20O%20Botic%C3%A1rio%20Fixa%C3%A7%C3%A3o%20Imbat%C3%ADvel%20com%20Pre%C3%A7o%20Justo%20[TOP%207].png"

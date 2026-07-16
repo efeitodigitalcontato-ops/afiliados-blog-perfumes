@@ -1,6 +1,6 @@
 ---
-title: "Por que alguns perfumes doces viciam? Desvendando as notas mais irresistíveis."
-description: "Descubra a ciência por trás dos perfumes doces e gourmands. Saiba por que fragrâncias com baunilha, caramelo e pralinê são tão viciantes e irresistíveis."
+title: "Por que alguns perfumes doces viciam? Desvendando as notas mais irresistíveis.'"
+description: "Descubra a ciência por trás dos perfumes doces e gourmands. Saiba por que fragrâncias com baunilha, caramelo e pralinê são tão viciantes e irresistíveis.'"
 pubDate: 2026-07-03
 category: "perfumes-femininos"
 heroImage: "https://bibliolab.com.br/uploads/Desvendando%20Perfumes%20Baratos%20O%20Botic%C3%A1rio%20Fixa%C3%A7%C3%A3o%20Imbat%C3%ADvel%20com%20Pre%C3%A7o%20Justo%20[TOP%207].png"

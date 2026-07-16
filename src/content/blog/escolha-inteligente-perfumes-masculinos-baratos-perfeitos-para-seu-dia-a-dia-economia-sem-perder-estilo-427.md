@@ -1,6 +1,6 @@
 ---
-title: "Escolha Inteligente: Perfumes Masculinos Baratos Perfeitos para seu Dia a Dia (Economia sem Perder Estilo)"
-description: "Descubra perfumes masculinos baratos que aliam qualidade, fixação e projeção ideais para o dia a dia. Mantenha seu estilo impecável e economize com as fragrâncias perfeitas. Explore agora!"
+title: "Escolha Inteligente: Perfumes Masculinos Baratos Perfeitos para seu Dia a Dia (Economia sem Perder Estilo)'"
+description: "Descubra perfumes masculinos baratos que aliam qualidade, fixação e projeção ideais para o dia a dia. Mantenha seu estilo impecável e economize com as fragrâncias perfeitas. Explore agora!'"
 pubDate: 2026-07-03
 category: "perfumes-masculinos"
 heroImage: "https://bibliolab.com.br/escolha-inteligente-perfumes-masculinos-baratos-perfeitos-para-seu-dia-a-dia-eco.png"

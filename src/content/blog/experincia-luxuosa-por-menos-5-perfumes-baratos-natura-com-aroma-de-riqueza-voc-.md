@@ -1,7 +1,7 @@
 ---
 heroImage: "/experincia-luxuosa-por-menos-5-perfumes-baratos-natura-com-aroma-de-riqueza-voc-.png"
-title: "Experiência Luxuosa por Menos: 5 Perfumes Baratos Natura com Aroma de Riqueza (Você vai se Surpreender!)"
-description: "Descubra 5 perfumes Natura que exalam luxo e sofisticação sem pesar no bolso! Clique e transforme sua rotina com aromas de elite. ✨"
+title: "Experiência Luxuosa por Menos: 5 Perfumes Baratos Natura com Aroma de Riqueza (Você vai se Surpreender!)'"
+description: "Descubra 5 perfumes Natura que exalam luxo e sofisticação sem pesar no bolso! Clique e transforme sua rotina com aromas de elite. ✨'"
 pubDate: 2026-07-03
 category: "Dicas"
 author: "Redação Gerador Ninja"

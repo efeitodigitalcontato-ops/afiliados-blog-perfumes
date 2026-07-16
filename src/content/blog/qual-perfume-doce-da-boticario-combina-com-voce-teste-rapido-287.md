@@ -1,6 +1,6 @@
 ---
-title: "Qual perfume doce da Boticário combina com você? [Teste Rápido]"
-description: "Descubra qual perfume doce do Boticário combina com sua personalidade neste guia técnico com teste rápido e dicas de fixação."
+title: "Qual perfume doce da Boticário combina com você? [Teste Rápido]'"
+description: "Descubra qual perfume doce do Boticário combina com sua personalidade neste guia técnico com teste rápido e dicas de fixação.'"
 pubDate: 2026-07-03
 category: "perfumes-femininos"
 heroImage: "https://bibliolab.com.br/uploads/Desvendando%20Perfumes%20Baratos%20O%20Botic%C3%A1rio%20Fixa%C3%A7%C3%A3o%20Imbat%C3%ADvel%20com%20Pre%C3%A7o%20Justo%20[TOP%207].png"

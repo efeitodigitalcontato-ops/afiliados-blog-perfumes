@@ -1,6 +1,6 @@
 ---
-title: "Doce Natura ou Eudora: Guia definitivo para escolher seu próximo aroma açucarado."
-description: "Dúvida entre perfume doce Natura ou Eudora? Analisamos notas, projeção e fixação para você escolher a fragrância adocicada perfeita. Confira!"
+title: "Doce Natura ou Eudora: Guia definitivo para escolher seu próximo aroma açucarado.'"
+description: "Dúvida entre perfume doce Natura ou Eudora? Analisamos notas, projeção e fixação para você escolher a fragrância adocicada perfeita. Confira!'"
 pubDate: 2026-07-03
 category: "perfumes-femininos"
 heroImage: "https://bibliolab.com.br/uploads/Desvendando%20Perfumes%20Baratos%20O%20Botic%C3%A1rio%20Fixa%C3%A7%C3%A3o%20Imbat%C3%ADvel%20com%20Pre%C3%A7o%20Justo%20[TOP%207].png"

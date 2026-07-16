@@ -1,6 +1,6 @@
 ---
 title: "Perfume Feminino Dolce & Gabbana Luna Vale A Pena? Análise E Fixação"
-description: "Desvende o mistério da fragrância Dolce & Gabbana Luna! Descubra se essa oferta de perfume feminino é realmente "Vale a Pena" com nossa análise completa."
+description: "Desvende o mistério da fragrância Dolce & Gabbana Luna! Descubra se essa oferta de perfume feminino é realmente 'Vale a Pena' com nossa análise completa."
 pubDate: "2026-07-16"
 category: "perfumes-femininos"
 heroImage: "/images/posts/perfume-feminino-dolce-gabbana-luna-vale-a-pena-analise-e-fixacao-4566.jpg"

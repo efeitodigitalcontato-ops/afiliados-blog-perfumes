@@ -1,6 +1,6 @@
 ---
 title: "Perfume Feminino Dolce & Gabbana Euphoria Vale A Pena? Análise E Fixação"
-description: "Descubra se o perfume Euphoria da Dolce & Gabbana é a escolha perfeita para você. Analisando notas e fixação, vamos descobrir se ele é realmente "aquele" para conquistar o seu coração e o de todos que te rodeiam."
+description: "Descubra se o perfume Euphoria da Dolce & Gabbana é a escolha perfeita para você. Analisando notas e fixação, vamos descobrir se ele é realmente 'aquele' para conquistar o seu coração e o de todos que te rodeiam."
 pubDate: "2026-07-16"
 category: "perfumes-femininos"
 heroImage: "/images/posts/perfume-feminino-dolce-gabbana-euphoria-vale-a-pena-analise-e-fixacao-2025.jpg"
