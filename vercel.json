@@ -1,14 +1,14 @@
 {
   "buildCommand": "astro build",
   "outputDirectory": "dist",
-  "rewrites": [
+  "routes": [
     {
-      "source": "/api/auth",
-      "destination": "/api/auth.js"
+      "src": "/api/auth",
+      "dest": "/api/auth.js"
     },
     {
-      "source": "/api/callback",
-      "destination": "/api/callback.js"
+      "src": "/api/callback",
+      "dest": "/api/callback.js"
     }
   ]
 }
